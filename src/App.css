@@ -24,6 +24,21 @@
   color: white;
 }
 
+.img-pokemon {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 .App-link {
   color: #61dafb;
 }
