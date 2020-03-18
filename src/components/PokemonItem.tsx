@@ -7,7 +7,7 @@ export class PokemonItem extends Component<Pokemon> {
 
 
         return (
-        <div className="offset-sm-1 col-sm-10 offset-md-2 col-md-8 mb-3">
+        <div className="col-12">
             <div className="card">
                 <div className="container">
                     <div className="row">

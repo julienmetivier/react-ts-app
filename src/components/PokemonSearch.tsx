@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import User from '../interfaces/User.interface';
 import Pokemon from '../interfaces/Pokemon.interface';
 import PokemonItem from './PokemonItem';
+import { Link } from 'react-router-dom';
 
 interface SearchState {
     error: boolean,
@@ -81,7 +82,9 @@ export class PokemonSearch extends Component<User, SearchState> {
                         Search
                     </button>
                 </div>
-                {resultMarkup}
+                <div className="offset-sm-1 col-sm-10 offset-md-2 col-md-8 mb-3">
+                    {resultMarkup}
+                </div>
             </div>
         )
     }
