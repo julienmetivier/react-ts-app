@@ -14,8 +14,18 @@ export default class PokemonDetail extends React.Component<PokemonDetailProps, P
         };
     }
 
-    findPokemon = () => {
-        fetch(`https://pokeapi.co/api/v2/pokemon/${this.state.name}`).then(
+    componentDidMount() {
+        this.findPokemon(this.state.name);
+    }
+
+    componentWillReceiveProps(nextProps: any){
+        if(nextProps.match.params.name !== this.state.name){
+            this.findPokemon(nextProps.match.params.name);
+        }
+    }
+
+    findPokemon = (name: string) => {
+        fetch(`https://pokeapi.co/api/v2/pokemon/${name}`).then(
             res => {
                 if(res.status !== 200){
                     this.setState({ error:true });
@@ -39,6 +49,7 @@ export default class PokemonDetail extends React.Component<PokemonDetailProps, P
                         
 
                         this.setState({
+                            name: name,
                             error: false,
                             pokemon: tempPokemonData
                         });
@@ -51,8 +62,6 @@ export default class PokemonDetail extends React.Component<PokemonDetailProps, P
     render() {
         const {error, pokemon} = this.state;
         let resultMarkup = [];
-
-        this.findPokemon();
 
         if(error){
             resultMarkup = [];

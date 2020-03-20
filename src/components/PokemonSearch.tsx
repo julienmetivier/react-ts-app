@@ -55,7 +55,6 @@ export class PokemonSearch extends Component<User, SearchState> {
     }
 
     render() {
-        const {name: userName, numberOfPokemons} = this.props;
         const {error, pokemons} = this.state;
         let resultMarkup = [];
 
@@ -82,7 +81,7 @@ export class PokemonSearch extends Component<User, SearchState> {
                         Search
                     </button>
                 </div>
-                <div className="offset-sm-1 col-sm-10 offset-md-2 col-md-8 mb-3">
+                <div className="col-12 mb-3">
                     {resultMarkup}
                 </div>
             </div>

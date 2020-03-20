@@ -8,19 +8,19 @@ import PokemonDetail from './components/PokemonDetail';
 function App() {
   return (
     <div className="App">
-      <div className="row">
-        <div className="col-sm-12 col-md-4">
-          <Router>
-            <Switch>
-              <Route exact path="/" component={NavigationList}></Route>
-              <Route path="/:name" component={PokemonDetail}></Route>
-            </Switch>
-          </Router>
+      <Router>
+        <div className="row">
+          <div className="col-sm-12 col-md-4">
+            <NavigationList/>
+          </div>
+          <div className="col-sm-12 col-md-8">
+              <Switch>
+                <Route exact path="/" component={PokemonSearch}></Route>
+                <Route path="/:name" component={PokemonDetail}/>
+              </Switch>
+          </div>
         </div>
-        <div className="col-sm-12 col-md-8">
-          <PokemonSearch name="John Doe" numberOfPokemons={5}/>
-        </div>
-      </div>
+      </Router>
     </div>
   );
 }
