@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { RouteComponentProps } from 'react-router';
+import { Link } from 'react-router-dom';
 
 export class Home extends Component<HomeProps, HomeState> {
     constructor(props: HomeProps) {
@@ -14,7 +15,7 @@ export class Home extends Component<HomeProps, HomeState> {
                     <div className="col-md-5 p-lg-5 mx-auto my-5">
                         <h1 className="display-4 font-weight-normal">Welcome!</h1>
                         <p className="lead font-weight-normal">Have a glimpse at all the First Gen Pokemon existing</p>
-                        <a className="btn btn-outline-secondary" href="/pokemons">Look for all pokemons</a>
+                        <Link className="btn btn-outline-secondary" to="/pokemon">Look for all pokemons</Link>
                     </div>
                 </div>
                 <div className="d-md-flex flex-md-equal w-100">
