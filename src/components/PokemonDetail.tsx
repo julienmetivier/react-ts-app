@@ -1,8 +1,8 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { render } from '@testing-library/react';
 import Pokemon from '../interfaces/Pokemon.interface';
 import PokemonItem from './PokemonItem';
+import PokemonNavList from './PokemonNavList';
 
 export default class PokemonDetail extends React.Component<PokemonDetailProps, PokemonDetailState> {
     constructor(props: PokemonDetailProps) {
@@ -61,20 +61,28 @@ export default class PokemonDetail extends React.Component<PokemonDetailProps, P
 
     render() {
         const {error, pokemon} = this.state;
-        let resultMarkup = [];
+        let resultMarkup;
 
         if(error){
             resultMarkup = [];
             resultMarkup.push(<p>Pokemon not found, please try again</p>);
         } else if (this.state.pokemon) {
-            resultMarkup = [];
-            resultMarkup.push(<PokemonItem key={pokemon.name}
-                name={pokemon.name} 
-                numberOfAbilities={pokemon.numberOfAbilities}  
-                baseExperience={pokemon.baseExperience}
-                numberOfMoves={pokemon.numberOfMoves}
-                types={pokemon.types}
-                imageUrl={pokemon.imageUrl}/>);
+            resultMarkup = (
+                <div className="row">
+                    <div className="col-sm-12 col-md-4">
+                        <PokemonNavList/>
+                    </div>
+                    <div className="col-sm-12 col-md-8">
+                    <PokemonItem key={pokemon.name}
+                        name={pokemon.name} 
+                        numberOfAbilities={pokemon.numberOfAbilities}  
+                        baseExperience={pokemon.baseExperience}
+                        numberOfMoves={pokemon.numberOfMoves}
+                        types={pokemon.types}
+                        imageUrl={pokemon.imageUrl}/>
+                    </div>
+                </div>
+            );
         }
         else {
             resultMarkup = [];
